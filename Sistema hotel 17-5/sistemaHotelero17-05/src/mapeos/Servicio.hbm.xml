@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+
+<class name="datos.Servicio" table="Servicio">
+
+
+	<id column="idServicio" name="idServicio">
+	<generator class="identity"/>
+	</id>
+	
+	
+    <property column="nombreServicio" name="nombreServicio" type="String"/>
+	<property column="descripcionServicio" name="descripcionServicio" type="String"/>
+
+
+	
+	<set name="productos" cascade="save-update" table="Producto" order-by="idProducto asc" inverse="true" lazy="true" fetch="select">
+			<key column="idServicio" not-null="true" />
+			<one-to-many class="datos.Producto" />	
+	</set>
+
+	
+    <many-to-one name="formaPago" class="datos.FormaPago" column="idFormaPago" not-null="true"/>
+    
+    <many-to-one name="login" class="datos.Login" column="idLogin" not-null="true"/>
+    
+    <many-to-one name="cliente" class="datos.Cliente" column="idCliente" not-null="true"/>	
+    
+		
+</class>
+</hibernate-mapping>

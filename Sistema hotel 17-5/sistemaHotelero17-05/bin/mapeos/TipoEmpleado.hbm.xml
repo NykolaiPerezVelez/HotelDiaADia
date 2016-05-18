@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="datos.TipoEmpleado" table="TipoEmpleado">
+	<id column="idTipoEmpleado" name="idTipoEmpleado">
+	<generator class="identity"/>
+	</id>
+	<property column = "idEmpleado" name = "idEmpleado" type = "int"/>
+	<property column = "nombreTipo" name = "nombreTipo" type = "string"/>
+	<property column = "descripcionTipo" name = "descripcionTipo" type = "string"/>
+	
+	<set name = "empleados" cascade = "save-update" table = "Empleado"
+	order-by = "idEmpleado asc" inverse = "true" lazy = "true" fetch = "select">
+			<key column = "idTipoEmpleado" not-null = "true" />
+			<one-to-many class = "datos.Empleado" />
+	</set>
+	
+</class>
+</hibernate-mapping>

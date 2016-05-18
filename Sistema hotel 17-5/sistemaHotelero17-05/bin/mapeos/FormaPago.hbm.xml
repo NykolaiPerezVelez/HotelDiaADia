@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name = "datos.FormaPago" table = "formapago">
+	<id column = "idFormaPago" name = "idFormaPago">
+	<generator class = "identity"/>
+	</id>
+	<property column = "nombreForma" name = "nombreForma" type = "String"/>
+	
+	<set name = "facturas" cascade = "save-update" table = "Factura"
+	order-by = "idFactura asc" inverse = "true" lazy = "true" fetch = "select">
+			<key column = "idFormaPago" not-null = "true" />
+			<one-to-many class = "datos.Factura" />	
+	</set>
+	
+</class>
+</hibernate-mapping>

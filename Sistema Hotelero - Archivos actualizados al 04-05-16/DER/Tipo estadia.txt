@@ -1,0 +1,8 @@
+Estadia:
+
+Activa 0  y Tipo Estadia 1 = Terminada 
+	  y '          ' 2 = Cancelada
+	  y '          ' 3 = Pendiente
+	  y '          ' 4 = Aceptada pero sin uso.
+
+Activa 1  y Tipo Estadia Null = En uso.  	
