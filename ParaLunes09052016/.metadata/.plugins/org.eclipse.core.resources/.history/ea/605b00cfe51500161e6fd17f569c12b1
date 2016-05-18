@@ -1,0 +1,72 @@
+package datos;
+
+public class Persona {
+	
+	private long idPersona;
+	private String apellido;
+	private String nombre;
+	private long dni;
+	private String tel;
+	
+	//Relaciones
+	private Cliente cliente;
+	private Empleado Empleado;
+	
+	
+	public long getIdPersona() {
+		return idPersona;
+	}
+	protected void setIdPersona(long idPersona) {
+		this.idPersona = idPersona;
+	}
+	
+	public String getApellido() {
+		return apellido;
+	}
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+	public String getNombre() {
+		return nombre;
+	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+	public long getDni() {
+		return dni;
+	}
+	public void setDni(long dni) {
+		this.dni = dni;
+	}
+	public String getTel() {
+		return tel;
+	}
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+	public Cliente getCliente() {
+		return cliente;
+	}
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	public Empleado getEmpleado() {
+		return Empleado;
+	}
+	public void setEmpleado(Empleado empleado) {
+		Empleado = empleado;
+	}
+	public Persona(String apellido, String nombre, long dni, String tel, Cliente cliente, datos.Empleado empleado) {
+		super();
+		this.apellido = apellido;
+		this.nombre = nombre;
+		this.dni = dni;
+		this.tel = tel;
+		this.cliente = cliente;
+		Empleado = empleado;
+	}
+	
+	
+	public Persona(){}
+
+}

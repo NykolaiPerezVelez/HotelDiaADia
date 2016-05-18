@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+
+<class name="datos.ParteReparacion" table="ParteReparacion">
+
+
+	<id column="idParteReparacion" name="idParteReparacion">
+	<generator class="identity"/>
+	</id>
+	
+	
+	<property column="desperfecto" name="desperfecto" type="String"/>
+	<property column="fechaOrigen" name="fechaOrigen" type="calendar"/>
+	<property column="fechaResolucion" name="fechaResolucion" type="calendar"/>
+	<property column="comentario" name="comentario" type="String"/>
+
+
+	
+    <many-to-one name="habitacion" class="datos.Habitacion" column="idHabitacion" not-null="true"/>
+    
+    <many-to-one name="login" class="datos.Login" column="idLogin" not-null="true"/>
+    
+	
+    
+		
+</class>
+</hibernate-mapping>

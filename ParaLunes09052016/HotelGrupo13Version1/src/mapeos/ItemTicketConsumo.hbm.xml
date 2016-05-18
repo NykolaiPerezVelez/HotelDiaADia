@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+
+<class name="datos.ItemTicketConsumo" table="ItemTicketConsumo">
+
+
+	<id column="idItemTicketConsumo" name="idItemTicketConsumo">
+	<generator class="identity"/>
+	</id>
+	
+	
+	<property column="cantidad" name="cantidad" type="int"/>
+	<property column="totalItem" name="totalItem" type="float"/>
+
+
+
+	
+    <many-to-one name="ticketConsumo" class="datos.TicketConsumo" column="idTicketConsumo" not-null="true"/>
+    
+    <many-to-one name="producto" class="datos.Producto" column="idProducto" not-null="true"/>
+    
+
+    
+    
+		
+</class>
+</hibernate-mapping>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+
+<class name="datos.TicketConsumo" table="TicketConsumo">
+
+
+	<id column="idTicketConsumo" name="idTicketConsumo">
+	<generator class="identity"/>
+	</id>
+	
+	
+	<property column="total" name="total" type="float"/>
+
+
+	
+	<set name="itemTickConsumos" cascade="save-update" table="ItemTickConsumo" order-by="idItemTickConsumo asc" inverse="true" lazy="true" fetch="select">
+			<key column="idTicketConsumo" not-null="true" />
+			<one-to-many class="datos.ItemTicketConsumo" />	
+	</set>
+
+	
+    <many-to-one name="estadia" class="datos.Estadia" column="idEstadia" not-null="true"/>
+    
+    <many-to-one name="login" class="datos.Login" column="idLogin" not-null="true"/>
+    
+ 
+</class>
+</hibernate-mapping>

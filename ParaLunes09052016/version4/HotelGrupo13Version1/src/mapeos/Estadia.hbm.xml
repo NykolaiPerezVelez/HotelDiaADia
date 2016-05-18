@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+
+<class name="datos.Estadia" table="estadia">
+
+
+	<id column="idEstadia" name="idEstadia">
+	<generator class="identity"/>
+	</id>
+	
+	
+	<property column="activa" name="activa" type="String"/>
+	<property column="diaCheckIn" name="diaCheckIn" type="calendar"/>
+	<property column="diaCheckOut" name="diaCheckOut" type="calendar"/>
+	<property column="cantidadAdultos" name="cantidadAdultos" type="int"/>
+	<property column="cantidadNinios" name="cantidadNinios" type="int"/>
+	
+	<set name="ticketConsumos" cascade="save-update" table="TicketConsumo" order-by="idTicketConsumo asc" inverse="true" lazy="true" fetch="select">
+			<key column="idEstadia" not-null="true" />
+			<one-to-many class="datos.TicketConsumo" />	
+	</set>
+
+	
+    <many-to-one name="cliente" class="datos.Cliente" column="idCliente" not-null="true"/>
+    
+    <many-to-one name="habitacion" class="datos.Habitacion" column="idHabitacion" not-null="true"/>
+    
+    <many-to-one name="tipoEstadiaInactiva" class="datos.TipoEstadiaInactiva" column="idTipoEstadiaInactiva" not-null="true"/>	
+    
+    <many-to-one name="login" class="datos.Login" column="idLogin" not-null="true"/>			
+</class>
+</hibernate-mapping>

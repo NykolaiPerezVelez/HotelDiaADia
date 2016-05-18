@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+
+<class name="datos.TipoEstadiaInactiva" table="TipoEstadiaInactiva">
+
+
+
+	<id column="idTipoEstadiaInactiva" name="idTipoEstadiaInactiva">
+	<generator class="identity"/>
+	</id>
+	
+
+
+	
+	<property column="nombreTipo" name="nombreTipo" type="String"/>
+	<property column="descripcionTipo" name="descripcionTipo" type="String"/>
+
+
+	
+	<set name="estadias" cascade="save-update" table="Estadia" order-by="idEstadia asc" inverse="true" lazy="true" fetch="select">
+			<key column="idTipoEstadiaInactiva" not-null="true" />
+			<one-to-many class="datos.Estadia" />	
+	</set>
+
+	
+    <many-to-one name="servicio" class="datos.Servicio" column="idServicio" not-null="true"/>
+    
+ 
+</class>
+</hibernate-mapping>

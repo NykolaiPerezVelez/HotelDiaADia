@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+<class name="datos.Cliente" table="cliente">
+
+
+	<id column="idEmpleado" name="idEmpleado">
+	<generator class="identity"/>
+	</id>
+	
+	
+	<property column="fechaIngresoHotel" name="fechaIngresoHotel" type="calendar"/>
+	<property column="apellido" name="apellido" type="String"/>
+	<property column="nombre" name="nombre" type="String"/>
+	<property column="dni" name="dni" type="int"/>
+	<property column="tel" name="tel" type="String"/>
+
+	
+    <many-to-one name="tipoEmpleado" class="datos.TipoEmpleado" column="prestamo_idPrestamo" not-null="true"/>	
+</class>
+</hibernate-mapping>

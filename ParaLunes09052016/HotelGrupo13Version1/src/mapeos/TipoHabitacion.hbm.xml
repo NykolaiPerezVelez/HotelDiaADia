@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+
+<class name="datos.TipoHabitacion" table="TipoHabitacion">
+
+
+	<id column="idTipoHabitacion" name="idTipoHabitacion">
+	<generator class="identity"/>
+	</id>
+	
+
+	
+	<property column="nombre" name="nombre" type="string"/>
+	<property column="descripcion" name="descipcion" type="string"/>
+	<property column="capacidad" name="capacidad" type="int"/>
+	<property column="servicios" name="servicios" type="string"/>
+
+
+	
+	<set name="tipoHabitacionXTemporadas" cascade="save-update" table="TipoHabitacionXTemporada" order-by="idTipoHabitacionXTemporada asc" inverse="true" lazy="true" fetch="select">
+			<key column="idTipoHabitacion" not-null="true" />
+			<one-to-many class="datos.TipoHabitacionXTemporada" />	
+	</set>
+	
+	<set name="habitaciones" cascade="save-update" table="Habitacion" order-by="idHabitacion asc" inverse="true" lazy="true" fetch="select">
+			<key column="idTipoHabitacion" not-null="true" />
+			<one-to-many class="datos.Habitacion" />	
+	</set>
+	
+	
+    
+		
+</class>
+</hibernate-mapping>

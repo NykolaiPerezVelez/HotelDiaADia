@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+
+<class name="datos.Habitacion" table="Habitacion">
+
+
+	<id column="idHabitacion" name="idHabitacion">
+	<generator class="identity"/>
+	</id>
+	
+	
+	<property column="disponibilidad" name="disponibilidad" type="boolean"/>
+
+
+	
+	<set name="limpiezas" cascade="save-update" table="Limpieza" order-by="idLimpieza asc" inverse="true" lazy="true" fetch="select">
+			<key column="idHabitacion" not-null="true" />
+			<one-to-many class="datos.Limpieza" />	
+	</set>
+	
+	<set name="estadias" cascade="save-update" table="Estadia" order-by="idEstadia asc" inverse="true" lazy="true" fetch="select">
+			<key column="idHabitacion" not-null="true" />
+			<one-to-many class="datos.Estadia" />	
+	</set>
+	
+	<set name="parteReparaciones" cascade="save-update" table="ParteReparacion" order-by="idParteReparacion asc" inverse="true" lazy="true" fetch="select">
+			<key column="idHabitacion" not-null="true" />
+			<one-to-many class="datos.ParteReparacion" />	
+	</set>
+
+	
+    <many-to-one name="tipoHabitacion" class="datos.TipoHabitacion" column="idTipoHabitacion" not-null="true"/>
+    
+    <many-to-one name="login" class="datos.Login" column="idLogin" not-null="true"/>
+    
+    
+		
+</class>
+</hibernate-mapping>

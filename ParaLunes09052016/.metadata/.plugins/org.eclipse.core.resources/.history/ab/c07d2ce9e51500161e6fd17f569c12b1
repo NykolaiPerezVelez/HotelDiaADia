@@ -1,0 +1,89 @@
+package datos;
+
+import java.util.Set;
+
+public class Cliente {
+
+	
+	private long idCliente;
+	private float totalGastadoEnHotel;
+	private int cantidadEstadias;
+	
+	//Realacione
+	private Persona persona;
+	private Set<Factura> facturas;
+	private Set<Estadia> estadias;
+
+	public Cliente(float totalGastadoEnHotel, int cantidadEstadias, Persona persona) {
+		this.totalGastadoEnHotel = totalGastadoEnHotel;
+		this.cantidadEstadias = cantidadEstadias;
+		this.persona = persona;
+	}
+	
+	
+	public Cliente(){}
+
+
+	public long getIdCliente() {
+		return idCliente;
+	}
+
+
+	protected void setIdCliente(long idCliente) {
+		this.idCliente = idCliente;
+	}
+
+
+	public float getTotalGastadoEnHotel() {
+		return totalGastadoEnHotel;
+	}
+
+
+	public void setTotalGastadoEnHotel(float totalGastadoEnHotel) {
+		this.totalGastadoEnHotel = totalGastadoEnHotel;
+	}
+
+
+	public int getCantidadEstadias() {
+		return cantidadEstadias;
+	}
+
+
+	public void setCantidadEstadias(int cantidadEstadias) {
+		this.cantidadEstadias = cantidadEstadias;
+	}
+
+
+	public Persona getPersona() {
+		return persona;
+	}
+
+
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}
+
+
+	public Set<Factura> getFacturas() {
+		return facturas;
+	}
+
+
+	public void setFacturas(Set<Factura> facturas) {
+		this.facturas = facturas;
+	}
+
+
+	public Set<Estadia> getEstadias() {
+		return estadias;
+	}
+
+
+	public void setEstadias(Set<Estadia> estadias) {
+		this.estadias = estadias;
+	}
+	
+	
+	
+	
+}

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+
+<class name="datos.Login" table="login">
+
+
+	<id column="idLogin" name="idLogin">
+	<generator class="identity"/>
+	</id>
+	
+	
+	<property column="nombreUsuario" name="nombreUsuario" type="String"/>
+	<property column="contrasenia" name="contrasenia" type="String"/>
+	<property column="numPermiso" name="numPermiso" type="int"/>
+	
+	<set name="estadias" cascade="save-update" table="Estadia" order-by="idEstadia asc" inverse="true" lazy="true" fetch="select">
+			<key column="idLogin" not-null="true" />
+			<one-to-many class="datos.Estadia" />	
+	</set>
+	
+	<set name="empleados" cascade="save-update" table="Empleado" order-by="idEmpleado asc" inverse="true" lazy="true" fetch="select">
+			<key column="idLogin" not-null="true" />
+			<one-to-many class="datos.Empleado" />	
+	</set>
+	
+	<set name="parteReparaciones" cascade="save-update" table="ParteReparacion" order-by="idParteReparacion asc" inverse="true" lazy="true" fetch="select">
+			<key column="idLogin" not-null="true" />
+			<one-to-many class="datos.ParteReparacion" />	
+	</set>
+	
+	<set name="habitaciones" cascade="save-update" table="Habitacion" order-by="idHabitacion asc" inverse="true" lazy="true" fetch="select">
+			<key column="idLogin" not-null="true" />
+			<one-to-many class="datos.Habitacion" />	
+	</set>
+	
+	<set name="facturas" cascade="save-update" table="Factura" order-by="idFactura asc" inverse="true" lazy="true" fetch="select">
+			<key column="idLogin" not-null="true" />
+			<one-to-many class="datos.Factura" />	
+	</set>
+	
+	<set name="ticketConsumos" cascade="save-update" table="TicketConsumo" order-by="idTicketConsumo asc" inverse="true" lazy="true" fetch="select">
+			<key column="idLogin" not-null="true" />
+			<one-to-many class="datos.TicketConsumo" />	
+	</set>
+
+	
+ 
+		
+</class>
+</hibernate-mapping>

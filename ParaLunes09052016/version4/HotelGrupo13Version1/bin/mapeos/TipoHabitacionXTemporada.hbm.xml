@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+
+<class name="datos.TipoHabitacionXTemporada" table="TipoHabitacionXTemporada">
+
+
+	<id column="idTipoHabitacionXTemporada" name="idTipoHabitacionXTemporada">
+	<generator class="identity"/>
+	</id>
+	
+	
+	<property column="precioNoche" name="precioNoche" type="float"/>
+
+	
+    <many-to-one name="tipoHabitacion" class="datos.TipoHabitacion" column="idTipoHabitacion" not-null="true"/>
+    
+    <many-to-one name="temporada" class="datos.Temporada" column="idTemporada" not-null="true"/>
+
+    
+		
+</class>
+</hibernate-mapping>

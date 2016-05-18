@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+
+<class name="datos.Factura" table="factura">
+
+
+	<id column="idFactura" name="idFactura">
+	<generator class="identity"/>
+	</id>
+	
+	
+	<property column="subTotal" name="subTotal" type="float"/>
+	<property column="total" name="total" type="float"/>
+
+	
+	<set name="itemFacturas" cascade="save-update" table="ItemFactura" order-by="idItemFactura asc" inverse="true" lazy="true" fetch="select">
+			<key column="idFactura" not-null="true" />
+			<one-to-many class="datos.ItemFactura" />	
+	</set>
+
+	
+    <many-to-one name="formaPago" class="datos.FormaPago" column="idFormaPago" not-null="true"/>
+    
+    <many-to-one name="login" class="datos.Login" column="idLogin" not-null="true"/>
+    
+    <many-to-one name="cliente" class="datos.Cliente" column="idCliente" not-null="true"/>	
+    
+		
+</class>
+</hibernate-mapping>

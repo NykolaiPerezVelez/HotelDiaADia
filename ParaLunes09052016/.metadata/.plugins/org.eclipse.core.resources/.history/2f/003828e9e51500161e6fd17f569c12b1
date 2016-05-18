@@ -1,0 +1,83 @@
+package datos;
+
+import java.util.GregorianCalendar;
+
+public class Empleado {
+
+	private long idEmpleado;
+	private GregorianCalendar fechaIngresoHotel;
+	
+	//relaciones
+	private Persona persona;
+	private Login login;
+	private TipoEmpleado tipoEmpleado;
+	
+	
+	//Constructores
+	public Empleado(GregorianCalendar fechaIngresoHotel, Persona persona, Login login, TipoEmpleado tipoEmpleado) {
+		this.fechaIngresoHotel = fechaIngresoHotel;
+		this.persona = persona;
+		this.login = login;
+		this.tipoEmpleado = tipoEmpleado;
+	}
+	
+	
+	public Empleado(){}
+
+
+	
+	//gets y sets
+	
+	public long getIdEmpleado() {
+		return idEmpleado;
+	}
+
+
+	protected void setIdEmpleado(long idEmpleado) {
+		this.idEmpleado = idEmpleado;
+	}
+
+
+	public GregorianCalendar getFechaIngresoHotel() {
+		return fechaIngresoHotel;
+	}
+
+
+	public void setFechaIngresoHotel(GregorianCalendar fechaIngresoHotel) {
+		this.fechaIngresoHotel = fechaIngresoHotel;
+	}
+
+
+	public Persona getPersona() {
+		return persona;
+	}
+
+
+	public void setPersona(Persona persona) {
+		this.persona = persona;
+	}
+
+
+	public Login getLogin() {
+		return login;
+	}
+
+
+	public void setLogin(Login login) {
+		this.login = login;
+	}
+
+
+	public TipoEmpleado getTipoEmpleado() {
+		return tipoEmpleado;
+	}
+
+
+	public void setTipoPersona(TipoEmpleado tipoEmpleado) {
+		this.tipoEmpleado = tipoEmpleado;
+	}
+	
+	
+
+	
+}

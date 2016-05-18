@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD
+3.0//EN" "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory>
+	
+	
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost/bd-hibernate-uno-a-muchos</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">hola123</property>	
+		<property name="connection.pool_size">1</property>
+		<property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+		<property name="show_sql">true</property> <!-- en true muestra hql en consola-->
+		<!--Mapeo Entidades -->
+		
+		
+		<mapping resource="mapeos/Cliente.hbm.xml"/>
+		<mapping resource="mapeos/Empleado.hbm.xml"/>	
+		<mapping resource="mapeos/Estadia.hbm.xml"/>
+		<mapping resource="mapeos/Factura.hbm.xml"/>
+		<mapping resource="mapeos/FormaPago.hbm.xml"/>	
+		<mapping resource="mapeos/Habitacion.xml"/>
+		<mapping resource="mapeos/ItemFactura.hbm.xml"/>
+		<mapping resource="mapeos/ItemTicketConsumo.hbm.xml"/>	
+		<mapping resource="mapeos/Limpieza.hbm.xml"/>
+		<mapping resource="mapeos/Login.hbm.xml"/>
+		<mapping resource="mapeos/ParteReparacion.hbm.xml"/>	
+		<mapping resource="mapeos/Persona.hbm.xml"/>
+		<mapping resource="mapeos/Producto.hbm.xml"/>
+		<mapping resource="mapeos/Servicio.hbm.xml"/>	
+		<mapping resource="mapeos/Temporada.hbm.xml"/>
+		<mapping resource="mapeos/TicketConsumo.hbm.xml"/>
+		<mapping resource="mapeos/TipoEmpleado.hbm.xml"/>	
+		<mapping resource="mapeos/TipoEstadiaInactiva.hbm.xml"/>
+		<mapping resource="mapeos/TipoHabitacion.hbm.xml"/>
+		<mapping resource="mapeos/TipoHabitacionXTemporada.hbm.xml"/>	
+
+
+		
+		
+		
+	</session-factory>
+</hibernate-configuration>   			
